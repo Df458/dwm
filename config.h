@@ -3,7 +3,7 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"monospace:size=10"
+	"Damnzen:size=8"
 };
 static const char dmenufont[]       = "Damnzen 8";
 static const char normbordercolor[] = "#111111";
@@ -72,7 +72,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[]  = { "dmenu_run", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]      = { "st", NULL };
 static const char *filescmd[]     = { "urxvt", "-e", "ranger", NULL };
 static const char *slockcmd[]     = { "slock", NULL };
