@@ -6,17 +6,22 @@ static const char *fonts[] = {
 	"Damnzen:size=8"
 };
 static const char dmenufont[]       = "Damnzen 8";
-static const char normbordercolor[] = "#111111";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#777777";
-static const char selbordercolor[]  = "#999999";
-static const char selbgcolor[]      = "#222222";
-static const char selfgcolor[]      = "#dddddd";
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx     = 4;
+#define NUMCOLORS                     6
+static const char colors[NUMCOLORS][MAXCOLORS][8] = {
+  // border  foreground background
+  { "#111111", "#777777", "#222222" }, // normal
+  { "#999999", "#dddddd", "#222222" }, // selected
+  { "#81c0c5", "#81c0c5", "#222222" }, // light blue, indicates activity
+  { "#f47e7d", "#f47e7d", "#222222" }, // orange,     indicates caution
+  { "#fefe55", "#fefe55", "#222222" }, // yellow,     indicates mail
+  { "#95f067", "#95f067", "#222222" }, // green
+  // add more here
+};
 
 /* tagging */
 static const char *tags[] = { "_", "_", "_", "_", "_", "_", "_" };
@@ -73,7 +78,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *dmenucmd[]  = { "dmenu_run", "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[]  = { "dmenu_run", "-nb", colors[0][2], "-nf", colors[0][1], "-sb", colors[1][2], "-sf", colors[1][1], NULL };
 static const char *termcmd[]      = { "st", NULL };
 static const char *filescmd[]     = { "urxvt", "-e", "ranger", NULL };
 static const char *slockcmd[]     = { "slock", NULL };
